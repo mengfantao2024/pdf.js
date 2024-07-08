@@ -200,6 +200,7 @@ class Toolbar {
   }
 
   #bindListeners(buttons) {
+    console.log(buttons);
     const { eventBus } = this;
     const { pageNumber, scaleSelect } = this.#opts;
     const self = this;

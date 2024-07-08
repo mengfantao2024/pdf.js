@@ -321,11 +321,11 @@ body {
   font: message-box;
 }
 
-:is(.toolbar, .editorParamsToolbar, .findbar, #sidebarContainer) :is(input, button, select),
+/* :is(.toolbar, .editorParamsToolbar, .findbar, #sidebarContainer) :is(input, button, select),
 .secondaryToolbar :is(input, button, a, select) {
   outline: none;
   font: message-box;
-}
+} */
 
 #toolbarContainer {
   width: 100%;

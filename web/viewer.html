@@ -356,6 +356,20 @@ See https://github.com/adobe-type-tools/cmap-resources
                 <span id="numPages" class="toolbarLabel"></span>
               </div>
               <div id="toolbarViewerRight">
+                <div id="editorModeButtons" class="splitToolbarButton toggled hidden" role="radiogroup">
+                  <button id="editorHighlight" class="toolbarButton" hidden="true" disabled="disabled" title="Highlight" role="radio" aria-checked="false" aria-controls="editorHighlightParamsToolbar" tabindex="31" data-l10n-id="pdfjs-editor-highlight-button">
+                    <span data-l10n-id="pdfjs-editor-highlight-button-label">Highlight</span>
+                  </button>
+                  <button id="editorFreeText" class="toolbarButton" disabled="disabled" title="Text" role="radio" aria-checked="false" aria-controls="editorFreeTextParamsToolbar" tabindex="32" data-l10n-id="pdfjs-editor-free-text-button">
+                    <span data-l10n-id="pdfjs-editor-free-text-button-label">Text</span>
+                  </button>
+                  <button id="editorInk" class="toolbarButton" disabled="disabled" title="Draw" role="radio" aria-checked="false" aria-controls="editorInkParamsToolbar" tabindex="33" data-l10n-id="pdfjs-editor-ink-button">
+                    <span data-l10n-id="pdfjs-editor-ink-button-label">Draw</span>
+                  </button>
+                  <button id="editorStamp" class="toolbarButton hidden" disabled="disabled" title="Add or edit images" role="radio" aria-checked="false" aria-controls="editorStampParamsToolbar" tabindex="34" data-l10n-id="pdfjs-editor-stamp-button">
+                    <span data-l10n-id="pdfjs-editor-stamp-button-label">Add or edit images</span>
+                  </button>
+                </div>
                 <div class="scaleModeButtons">
                   <div class="splitToolbarButton">
                     <button id="zoomOut" class="toolbarButton" title="Zoom Out" tabindex="21" data-l10n-id="pdfjs-zoom-out-button">
@@ -384,22 +398,29 @@ See https://github.com/adobe-type-tools/cmap-resources
                     </select>
                   </span>
                 </div>
+                <div id="editorModeSeparator" class="verticalToolbarSeparator"></div>
+                <button id="toolbar_cursorSelectTool" class="toolbarButton toggled" title="Enable Text Selection Tool" tabindex="60" data-l10n-id="pdfjs-cursor-text-select-tool-button" role="radio" aria-checked="true">
+                  <span data-l10n-id="pdfjs-cursor-text-select-tool-button-label">Text Selection Tool</span>
+                </button>
+                <button id="toolbar_cursorHandTool" class="toolbarButton" title="Enable Hand Tool" tabindex="61" data-l10n-id="pdfjs-cursor-hand-tool-button" role="radio" aria-checked="false">
+                  <span data-l10n-id="pdfjs-cursor-hand-tool-button-label">Hand Tool</span>
+                </button>
+                <button id="toolbar_pageRotateCw" class="toolbarButton" title="Rotate Clockwise" tabindex="58" data-l10n-id="pdfjs-page-rotate-cw-button">
+                  <span data-l10n-id="pdfjs-page-rotate-cw-button-label">Rotate Clockwise</span>
+                </button>
+                <button id="print" class="toolbarButton hiddenMediumView" title="Print" tabindex="41" data-l10n-id="pdfjs-print-button">
+                  <span data-l10n-id="pdfjs-print-button-label">Print</span>
+                </button>
+                <button id="download" class="toolbarButton hiddenMediumView" title="Save" tabindex="42" data-l10n-id="pdfjs-save-button">
+                  <span data-l10n-id="pdfjs-save-button-label">Save</span>
+                </button>
+                <div class="verticalToolbarSeparator hiddenMediumView"></div>
+                <button id="secondaryToolbarToggle" class="toolbarButton" title="Tools" tabindex="43" data-l10n-id="pdfjs-tools-button" aria-expanded="false" aria-controls="secondaryToolbar">
+                  <span data-l10n-id="pdfjs-tools-button-label">Tools</span>
+                </button>
               </div>
               
-              <div id="editorModeButtons" class="splitToolbarButton toggled hidden" role="radiogroup">
-                <button id="editorHighlight" class="toolbarButton" hidden="true" disabled="disabled" title="Highlight" role="radio" aria-checked="false" aria-controls="editorHighlightParamsToolbar" tabindex="31" data-l10n-id="pdfjs-editor-highlight-button">
-                  <span data-l10n-id="pdfjs-editor-highlight-button-label">Highlight</span>
-                </button>
-                <button id="editorFreeText" class="toolbarButton" disabled="disabled" title="Text" role="radio" aria-checked="false" aria-controls="editorFreeTextParamsToolbar" tabindex="32" data-l10n-id="pdfjs-editor-free-text-button">
-                  <span data-l10n-id="pdfjs-editor-free-text-button-label">Text</span>
-                </button>
-                <button id="editorInk" class="toolbarButton" disabled="disabled" title="Draw" role="radio" aria-checked="false" aria-controls="editorInkParamsToolbar" tabindex="33" data-l10n-id="pdfjs-editor-ink-button">
-                  <span data-l10n-id="pdfjs-editor-ink-button-label">Draw</span>
-                </button>
-                <button id="editorStamp" class="toolbarButton hidden" disabled="disabled" title="Add or edit images" role="radio" aria-checked="false" aria-controls="editorStampParamsToolbar" tabindex="34" data-l10n-id="pdfjs-editor-stamp-button">
-                  <span data-l10n-id="pdfjs-editor-stamp-button-label">Add or edit images</span>
-                </button>
-              </div>
+             
             </div>
             <div id="loadingBar">
               <div class="progress">
