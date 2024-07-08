@@ -15,6 +15,7 @@
 
 import { AnnotationEditorType, ColorPicker, noContextMenu } from "pdfjs-lib";
 import {
+  CursorTool,
   DEFAULT_SCALE,
   DEFAULT_SCALE_VALUE,
   MAX_SCALE,
@@ -53,6 +54,23 @@ class Toolbar {
     this.#opts = options;
     this.eventBus = eventBus;
     const buttons = [
+      {
+        element: options.cursorSelectToolButton,
+        eventName: "switchcursortool",
+        eventDetails: { tool: CursorTool.SELECT },
+        close: true,
+      },
+      {
+        element: options.cursorHandToolButton,
+        eventName: "switchcursortool",
+        eventDetails: { tool: CursorTool.HAND },
+        close: true,
+      },
+      {
+        element: options.pageRotateCwButton,
+        eventName: "rotatecw",
+        close: false,
+      },
       { element: options.previous, eventName: "previouspage" },
       { element: options.next, eventName: "nextpage" },
       { element: options.zoomIn, eventName: "zoomin" },
@@ -111,7 +129,7 @@ class Toolbar {
 
     // Bind the event listeners for click and various other actions.
     this.#bindListeners(buttons);
-
+    eventBus._on("cursortoolchanged", this.#cursorToolChanged.bind(this));
     if (options.editorHighlightColorPicker) {
       eventBus._on(
         "annotationeditoruimanager",
@@ -135,6 +153,12 @@ class Toolbar {
     });
 
     this.reset();
+  }
+
+  #cursorToolChanged({ tool }) {
+    const { cursorSelectToolButton, cursorHandToolButton } = this.#opts;
+    toggleCheckedBtn(cursorSelectToolButton, tool === CursorTool.SELECT);
+    toggleCheckedBtn(cursorHandToolButton, tool === CursorTool.HAND);
   }
 
   #setAnnotationEditorUIManager(uiManager, parentContainer) {
@@ -194,17 +218,17 @@ class Toolbar {
       });
     }
     // The non-button elements within the toolbar.
-    pageNumber.addEventListener("click", function () {
+    pageNumber.addEventListener("click", function() {
       this.select();
     });
-    pageNumber.addEventListener("change", function () {
+    pageNumber.addEventListener("change", function() {
       eventBus.dispatch("pagenumberchanged", {
         source: self,
         value: this.value,
       });
     });
 
-    scaleSelect.addEventListener("change", function () {
+    scaleSelect.addEventListener("change", function() {
       if (this.value === "custom") {
         return;
       }
@@ -215,7 +239,7 @@ class Toolbar {
     });
     // Here we depend on browsers dispatching the "click" event *after* the
     // "change" event, when the <select>-element changes.
-    scaleSelect.addEventListener("click", function ({ target }) {
+    scaleSelect.addEventListener("click", function({ target }) {
       // Remove focus when an <option>-element was *clicked*, to improve the UX
       // for mouse users (fixes bug 1300525 and issue 4923).
       if (

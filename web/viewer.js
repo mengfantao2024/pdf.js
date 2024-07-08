@@ -40,6 +40,11 @@ function getViewerConfiguration() {
     mainContainer: document.getElementById("viewerContainer"),
     viewerContainer: document.getElementById("viewer"),
     toolbar: {
+      cursorHandToolButton: document.getElementById("toolbar_cursorHandTool"),
+      cursorSelectToolButton: document.getElementById(
+        "toolbar_cursorSelectTool"
+      ),
+      pageRotateCwButton: document.getElementById("toolbar_pageRotateCw"),
       container: document.getElementById("toolbarViewer"),
       numPages: document.getElementById("numPages"),
       pageNumber: document.getElementById("pageNumber"),
@@ -85,8 +90,8 @@ function getViewerConfiguration() {
       lastPageButton: document.getElementById("lastPage"),
       pageRotateCwButton: document.getElementById("pageRotateCw"),
       pageRotateCcwButton: document.getElementById("pageRotateCcw"),
-      cursorSelectToolButton: document.getElementById("cursorSelectTool"),
       cursorHandToolButton: document.getElementById("cursorHandTool"),
+      cursorSelectToolButton: document.getElementById("cursorSelectTool"),
       scrollPageButton: document.getElementById("scrollPage"),
       scrollVerticalButton: document.getElementById("scrollVertical"),
       scrollHorizontalButton: document.getElementById("scrollHorizontal"),

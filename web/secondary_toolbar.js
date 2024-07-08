@@ -81,18 +81,7 @@ class SecondaryToolbar {
         eventName: "rotateccw",
         close: false,
       },
-      {
-        element: options.cursorSelectToolButton,
-        eventName: "switchcursortool",
-        eventDetails: { tool: CursorTool.SELECT },
-        close: true,
-      },
-      {
-        element: options.cursorHandToolButton,
-        eventName: "switchcursortool",
-        eventDetails: { tool: CursorTool.HAND },
-        close: true,
-      },
+
       {
         element: options.scrollPageButton,
         eventName: "switchscrollmode",

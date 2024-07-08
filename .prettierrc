@@ -1,18 +1,19 @@
 {
   "arrowParens": "avoid",
   "endOfLine": "lf",
-  "printWidth": 80,
+  "printWidth": 180,
   "semi": true,
   "tabWidth": 2,
   "trailingComma": "es5",
   "useTabs": false,
-
   "overrides": [
     {
-      files: ["tsconfig.json"],
-      options: {
-        parser: "json",
-      },
-    },
+      "files": [
+        "tsconfig.json"
+      ],
+      "options": {
+        "parser": "json"
+      }
+    }
   ]
 }
