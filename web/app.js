@@ -1665,14 +1665,14 @@ const PDFViewerApplication = {
     const { annotationStorage } = pdfDocument;
 
     annotationStorage.onSetModified = () => {
-      window.addEventListener("beforeunload", beforeUnload);
+      // window.addEventListener("beforeunload", beforeUnload);
 
       if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
         this._annotationStorageModified = true;
       }
     };
     annotationStorage.onResetModified = () => {
-      window.removeEventListener("beforeunload", beforeUnload);
+      // window.removeEventListener("beforeunload", beforeUnload);
 
       if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
         delete this._annotationStorageModified;
