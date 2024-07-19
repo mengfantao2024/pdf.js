@@ -256,12 +256,12 @@ class PDFViewer {
         throw new Error("Invalid `container` and/or `viewer` option.");
       }
 
-      if (
-        this.container.offsetParent &&
-        getComputedStyle(this.container).position !== "absolute"
-      ) {
-        throw new Error("The `container` must be absolutely positioned.");
-      }
+      // if (
+      //   this.container.offsetParent &&
+      //   getComputedStyle(this.container).position !== "absolute"
+      // ) {
+      //   throw new Error("The `container` must be absolutely positioned.");
+      // }
     }
     this.#resizeObserver.observe(this.container);
 
