@@ -94,7 +94,7 @@ const ViewOnLoad = {
 const PDFViewerApplication = {
   initialBookmark: document.location.hash.substring(1),
   _initializedCapability: {
-    ...Promise.withResolvers(),
+    promise: new Promise(),
     settled: false,
   },
   appConfig: null,
@@ -245,7 +245,7 @@ const PDFViewerApplication = {
     this.bindWindowEvents();
 
     this._initializedCapability.settled = true;
-    this._initializedCapability.resolve();
+    this._initializedCapability.promise.resolve();
   },
 
   /**
@@ -698,7 +698,7 @@ const PDFViewerApplication = {
     if (this.supportsIntegratedFind) {
       appConfig.toolbar?.viewFind?.classList.add("hidden");
     }
-
+    this.open({ url: 'https://img-static.walkclass.com/message_attachment/20240717/17c0cb629c014631be9910d70ee0d360.pdf' });
     // if (typeof PDFJSDev === "undefined" || PDFJSDev.test("GENERIC")) {
     //   if (file) {
     //     this.open({ url: file });
